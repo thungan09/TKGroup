@@ -1,0 +1,306 @@
+$primary-color: #1e90ff;
+$secondary-color: #ff1493;
+$background-color: #3cb371;
+$header-bg-color: #1e90ff;
+$footer-bg-color: #333;
+$btn-bg-color: #dc6008;
+$btn-hover-bg-color: #70390f;
+$card-bg-color: #fbc9b2d3;
+
+body {
+  margin: 0;
+  font-family: 'Geist', sans-serif;
+  background-image:
+    url('https://i.pinimg.com/736x/75/77/ce/7577ce4c47ed96045f6ad801010d128a.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Giữ hình nền cố định */
+  min-height: 100vh; /* Đổi từ height sang min-height */
+  width: 100vw;
+  overflow-y: auto; /* Đảm bảo cuộn dọc hoạt động */
+  position: relative; // Để z-index của các thành phần con hoạt động đúng
+  z-index: 0; // Lớp dưới cùng (background)
+  
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: $header-bg-color;
+  color: white;
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .balance {
+    display: flex;
+    gap: 10px;
+
+    div {
+      padding: 4px 8px;
+      border-radius: 5px;
+    }
+
+    .black {
+      background-color: black;
+      color: white;
+    }
+
+    .pink {
+      background-color: $secondary-color;
+      color: white;
+    }
+  }
+  .sidebar {
+    position: absolute;
+    top: 60px;
+    left: 3%; /* Cách lề trái khoảng 20px */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+    button {
+      margin: 5%;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      color: white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 8px;
+  
+      &.daily-gift {
+        background-color: #ffcc00;
+      }
+  
+      &.forum {
+        background-color: #007bff;
+      }
+  
+      &.mute {
+        background-color: #ff4444;
+      }
+  
+      &.claim {
+        background-color: #808080;
+      }
+    }
+  }
+  .connect-btn {
+    background-color: $primary-color;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  background-color: $footer-bg-color;
+  color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1999;
+  button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 8px;
+    text-align: center;
+    margin: 3%;
+
+    &:hover {
+      background-color: rgba(255, 226, 141, 0.862);
+      border-radius: 8px;
+    }
+  }
+}
+
+.fixed-top {
+  position: fixed;
+  top: 270px;
+  left: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Styles for the card view */
+.card-view-container {
+  max-height: calc(100vh - 140px); /* Đổi từ height sang max-height */
+  overflow-y: auto; /* Cho phép cuộn dọc */
+  padding-bottom: 60px; /* Để tránh trùng với menu bottom */
+  
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột */
+  gap: 4px;
+}
+
+.card {
+  background-color: $card-bg-color;
+  border-radius: 8px;
+  margin: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 6px;
+  text-align: center;
+
+  img {
+    border-radius: 8px;
+  }
+
+  .card-info {
+    margin-top: 8px;
+
+    p {
+      margin: 4px 0;
+    }
+  }
+
+  .btnBuy {
+    background-color: $btn-bg-color;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 8px;
+
+    &:hover {
+      background-color: $btn-hover-bg-color;
+    }
+  }
+}
+.dialog {
+  position: relative;
+  z-index: 999;           // Lớp trên cùng
+}
+.button-container {
+  display: flex;
+  gap: 1.5rem; /* Adjust spacing between buttons */
+  background-color: transparent;
+  padding: 1rem; /* Adjust padding */
+  position: fixed;
+  top: 19%;
+}
+.quests-grid {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: nowrap; // quan trọng để giữ 1 hàng
+  overflow-x: auto; // cho phép cuộn nếu thiếu chỗ
+  padding: 12px;
+}
+
+.quest-card {
+  background: url('https://goblinx.org/load/img/textur.png');
+  background-size: cover;
+  border-radius: 10px;
+  width: 100px; // nhỏ lại chút
+  padding: 8px;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0; // ngăn co lại khi overflow
+}
+
+
+.quest-top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 5px;
+  
+}
+
+.quest-count {
+  background-color: #3fb46e;
+  border-radius: 9999px;
+  padding: 2px 6px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #000;
+}
+
+.quest-percent {
+  color: #a3b68a;
+  font-weight: bold;
+}
+
+.quest-image {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 4px;
+}
+
+.quest-image img {
+  height: 50px;
+  margin-left: 10px;
+}
+
+.quest-daily {
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.quest-daily img {
+  height: 12px;
+}
+
+.quest-action button {
+  background-color: #444;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+}
+
+.quest-action button img {
+  height: 12px;
+}
+
+
+@media (max-width: 480px) {
+  .quests-grid {
+    gap: 8px;
+  }
+  .quest-card {
+    width: 100px;
+    padding: 6px;
+  }
+}

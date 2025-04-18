@@ -1,0 +1,300 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Cố định header */
+  top: 0; /* Đặt ở trên cùng */
+  left: 0; /* Căn trái */
+  width: 100%; /* Chiều rộng full */
+  height: 50px;
+  z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
+  background-color: #ffffff; /* Đặt màu nền để tránh bị trong suốt */
+}
+.tabs-container {
+  background-color: #ca927dcb; /* Nền nâu nhạt */
+  border: 1px solid #ccc; /* Viền xám nhạt */
+  border-radius: 8px; /* Bo góc */
+  padding: 10px; /* Khoảng cách bên trong */
+}
+.tab-button {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font-weight: bold;
+  color:#ffffff;
+
+  &.active {
+    background-color: #dc7b27;
+    color:#ffffff;
+  }
+
+  &:hover {
+    background-color: #dc7b27;
+  }
+}
+
+.tab-content {
+  padding: 16px;
+}
+
+.quest-list {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .quest-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e0e0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    button {
+      background-color: #fbbf24;
+      color: white;
+      padding: 4px 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f59e0b;
+      }
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    .quest-item {
+      flex-direction: column;
+      align-items: flex-start;
+
+      button {
+        margin-top: 8px;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 8px;
+
+    .quest-item {
+      padding: 4px 0;
+
+      button {
+        padding: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.scroll-dialog-container {
+  overflow-y: auto; /* Đảm bảo scroll dọc */
+  overflow-x: hidden; /* Tắt scroll ngang */
+  max-height: 100%; /* Đặt chiều cao tối đa nếu cần */
+  width: 100%; /* Đảm bảo container không vượt quá chiều rộng */
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+
+  /* Tùy chỉnh thanh scroll */
+  &::-webkit-scrollbar {
+    width: 1px; /* Độ rộng của thanh scroll */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1; /* Màu của thanh kéo */
+    border-radius: 1px; /* Bo góc */
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #94a3b8; /* Màu khi hover */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f5f9; /* Màu nền của track */
+  }
+}
+
+.dialog-placeholder {
+  height: 690px;
+  width: 100%; /* Khoảng trống phía trên dialog */
+}
+
+.dialog-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 1px;
+}
+
+
+
+.dialog-content {
+  max-height: 584px; /* 96px x 4 items */
+  overflow-y: auto;
+  
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #e5e7eb;
+  height: 64px;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+
+  div {
+    text-align: center;
+
+    span {
+      margin-top: 4px;
+      display: block;
+      font-size: 12px;
+    }
+  }
+}
+.referral-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+// .dialog {
+//   background-color: #2b1d42; /* nền tím đậm */
+//   border-radius: 12px;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+//   padding: 24px;
+//   max-width: 600px;
+//   margin: 0 auto;
+//   color: white;
+// }
+
+.dialog {
+  background-color: #352154;
+  color: white;
+  // background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  height: 800px;
+  max-width: 90%;
+  width: 100%;
+}
+.referral-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.referral-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.referral-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.referral-item span {
+  font-weight: bold;
+  margin-right: 16px;
+  min-width: 50px;
+  text-align: right;
+}
+
+.referral-coin-box {
+  flex: 1;
+  background-color: #3b2d54;
+  border: 2px solid #60a5fa; /* blue border */
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.referral-coin-box img {
+  width: 48px;
+  height: 48px;
+}
+
+.referral-coin-box p {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.referral-coin-box button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #60a5fa; /* blue-400 */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.referral-coin-box button:hover {
+  background-color: #3b82f6; /* blue-500 */
+}
+
+.invite-btn {
+  background-color: #facc15;
+  color: black;
+  font-weight: bold;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 12px 20px;
+  width: 100%; // full chiều rộng 2 cột
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  display: block;
+}
+
+.invitee-box {
+  // background-color: #a89984;
+  background-color: #1f1632;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.invite-btn:hover {
+  background-color: #fbbf24;
+}
+
+.referral-box {
+  background-color: #1f1632;
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
